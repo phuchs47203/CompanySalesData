@@ -1,0 +1,89 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>test_error_ssas</Database>
+    <Server>PHUCHS\MSSQLSERVER2022</Server>
+    <ConnectionString>Data Source=PHUCHS\MSSQLSERVER2022;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>B768cM0MmbBySnL5L3Haqhu8tOc=5/21/2024 11:02:59 AM5/21/2024 11:02:59 AM</TimeStamp>
+        <ID>
+          <String>DT OLAP</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>jylWbRg8fNz/gmZMO7zWwRwThFY=5/21/2024 11:03:11 AM5/21/2024 11:03:11 AM</TimeStamp>
+        <ID>
+          <String>DT OLAP</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>BZPgJNje9uXVI2TYL7Pm0nKD9LA=5/21/2024 11:03:20 AM5/21/2024 11:03:19 AM</TimeStamp>
+        <ID>
+          <String>DIM DATE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>USvXmp7d6LUuaJRF7Q1fY931jNQ=5/21/2024 11:03:20 AM5/21/2024 11:03:19 AM</TimeStamp>
+        <ID>
+          <String>DIM CUSTOMER</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Ou8fjrRJVxXAw9IVFEu+hXrgXf0=5/21/2024 11:03:20 AM5/21/2024 11:03:19 AM</TimeStamp>
+        <ID>
+          <String>DIM CITY</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>1dSFFcwgWhrHcZZbfykPmqEYzLQ=5/21/2024 11:03:20 AM5/21/2024 11:03:19 AM</TimeStamp>
+        <ID>
+          <String>DIM STATE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>2RIIC0SD5A3DIQBcHbMETiCtqp4=5/21/2024 11:03:20 AM5/21/2024 11:03:19 AM</TimeStamp>
+        <ID>
+          <String>DIM PRODUCT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>gtszpTaQdYfi45t397MGmoKwePs=5/21/2024 11:03:20 AM5/21/2024 11:03:19 AMo6cXq+PO30lQHroTT5XW8hdMV5Q=5/21/2024 11:03:20 AM5/21/2024 11:03:19 AM</TimeStamp>
+        <ID>
+          <String>DT OLAP</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>yh9O/EBBGPEDzcLmUJHwss47EdY=5/21/2024 11:02:36 AM5/21/2024 11:02:36 AM</TimeStamp>
+      <ID>
+        <String>test_error_ssas</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2024-05-21T04:03:27.596667Z</LastDeployed>
+</DeploymentSnapshot>

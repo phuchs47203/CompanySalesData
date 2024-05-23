@@ -1,0 +1,44 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\SEM2 Data warehouse and OLAP\\Poject OLAP\\ssas3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B7364067-146A-42B9-BBC2-B95FD2633F96}|ssas3\\ssas3.dwproj|D:\\SEM2 Data warehouse and OLAP\\Poject OLAP\\ssas3\\ssas3\\DT OLAP.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B7364067-146A-42B9-BBC2-B95FD2633F96}|ssas3\\ssas3.dwproj|solutionrelative:ssas3\\DT OLAP.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a83394e3-39c2-4678-a3c8-364b69d78fd3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DT OLAP.cube [Design]",
+              "DocumentMoniker": "D:\\SEM2 Data warehouse and OLAP\\Poject OLAP\\ssas3\\ssas3\\DT OLAP.cube",
+              "RelativeDocumentMoniker": "ssas3\\DT OLAP.cube",
+              "ToolTip": "D:\\SEM2 Data warehouse and OLAP\\Poject OLAP\\ssas3\\ssas3\\DT OLAP.cube [Design]*",
+              "RelativeToolTip": "ssas3\\DT OLAP.cube [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-21T03:58:45.472Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

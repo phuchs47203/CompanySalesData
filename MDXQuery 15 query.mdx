@@ -1,0 +1,89 @@
+﻿--1. Doanh thu, chi phí, lợi nhuận của từng loại sản phẩm-Catgory (từ sản phẩm đến loại sản phẩm) rollup
+
+Select
+	non empty {[Measures].[Sales]} on columns,
+	non empty {([DIM PRODUCT].[Category].Children)} on rows
+from [DW Project OLAP];
+
+SELECT
+	NON EMPTY { [Measures].[Sales] } ON COLUMNS,
+	NON EMPTY { ([DIM PRODUCT].[Category].[Category].ALLMEMBERS) } ON ROWS 
+FROM [DW Project OLAP];
+
+
+--2. Doanh thu từng năm (từ ngày đến năm) rollup
+Select
+	non empty {[Measures].[Sales]} on columns,
+	non empty {([DIM DATE].[Year].Children)} on rows
+from [DW Project OLAP];
+
+--3. Doanh thu theo từng sub-category trong mỗi category (từ category đến sub-category) drill down
+Select
+	non empty ({[Measures].[Sales]} )on columns,
+	non empty {([DIM PRODUCT].[Category].Children * [DIM PRODUCT].[Sub- category].ALLmembers)} on rows
+from [DW Project OLAP];
+
+
+--4. Doanh thu theo từng tháng trong mỗi năm (từ năm về tháng) drill down
+ SELECT NON EMPTY { [Measures].[Sales] } ON COLUMNS,
+	NON EMPTY { ([DIM DATE].[YEAR].Children
+	            * [DIM DATE].[MONTH].ALLMEMBERS ) }  ON ROWS
+ FROM [DW Project OLAP];
+
+--5. Doanh thu của từng loại sản phẩm, trong mỗi năm ở tiểu bang "California"   slice
+ SELECT NON EMPTY { [Measures].[Sales] } ON COLUMNS,
+	NON EMPTY { ([DIM DATE].[YEAR].[YEAR].&[2015]
+	            * [DIM PRODUCT].[Sub- Category].ALLMEMBERS ) }  ON ROWS
+ FROM [DW Project OLAP];
+
+--6.Sô lượng sản phẩm đã bán của loại sản phẩm (category) là  "Furniture" theo từng năm ở tất cả các tiểu bang    slice ok
+
+
+--7. Số lượng sản phẩm đã bán của 2 loại sub-category là Accessories và Bookcases trong các năm ở hai thành phố Aurora và Austin  dice ok
+
+
+--8. Doanh thu của tiểu bang là California or Florida trong  năm 2015 or 2016  của tất cả loại sản phẩm (category) dice ok
+
+--9. Doanh thu của tiểu bang là “California” or “Florida” trong năm 2015 or 2016 của loại sản phẩm là “Furniture” or “Technology”
+
+--10. Tính doanh thu của từng sub-catgory sản phẩm(category) theo từng category trong các năm, Hiển thị năm  từng cột và mỗi dòng là một loại sản phẩm, sub-catgeory
+  SELECT NON EMPTY ({ [DIM PRODUCT].[Category].[Category].allmembers }, {[Measures].[Sales]}) ON COLUMNS,
+	NON EMPTY {([DIM DATE].[YEAR].Children)} ON ROWS
+ FROM [DW Project OLAP];
+
+   SELECT NON EMPTY ({ [DIM PRODUCT].[Category].[Category].allmembers }) ON COLUMNS,
+	NON EMPTY {([DIM DATE].[YEAR].Children)} ON ROWS
+ FROM [DW Project OLAP]
+ where {[Measures].[Sales]};
+--11. Số lượng sản phẩm đã bán của Các loại sản phẩm trong tất cả các năm. Hiển thịCategory ở trên dòng, các cọt là các năm
+ SELECT NON EMPTY ({[Measures].[Sales]}) ON COLUMNS,
+	NON EMPTY {([DIM PRODUCT].[Category].[Category].allmembers )} ON ROWS
+ FROM [DW Project OLAP]
+ where [DIM DATE].[YEAR].&[2015];
+
+--12. Tính giá trị đơn hàng của mỗi khách hàng và hiện ra những khách hàng có tổng giá trị đơn hàng lớn hơn 200000
+--having
+SELECT 
+NON EMPTY {[Measures].[Sales]} ON COLUMNS,
+NON EMPTY [DIM CUSTOMER].Children having [Measures].[Sales] > 200000 ON ROWS
+FROM [DW Project OLAP];
+ --filter and order by
+
+SELECT 
+NON EMPTY {[Measures].[Sales]} ON COLUMNS,
+NON EMPTY ORDER(
+  FILTER([DIM CUSTOMER].Children, [Measures].[Sales] > 200000), 
+  [Measures].[Sales], DESC
+) ON ROWS
+FROM [DW Project OLAP];
+
+--13. Xuất ra top 10 các sản phẩm có số lượng bán lớn nhất
+SELECT 
+NON EMPTY {[Measures].[Quantity]} ON COLUMNS,
+NON EMPTY TOPCOUNT( [DIM PRODUCT].[PRODUCT NAME].Children,10, [Measures].[Quantity]) ON ROWS
+FROM [DW Project OLAP];
+--14. Xuất ra top 10 các sản phẩm cosd oanh thu cao nhất
+SELECT 
+NON EMPTY {[Measures].[Sales]} ON COLUMNS,
+NON EMPTY TOPCOUNT( [DIM CUSTOMER].Children,10, [Measures].[Sales]) ON ROWS
+FROM [DW Project OLAP];

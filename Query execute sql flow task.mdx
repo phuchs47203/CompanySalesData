@@ -1,0 +1,69 @@
+﻿
+ALTER TABLE Fact DROP CONSTRAINT fact_city_fk;
+ALTER TABLE Fact DROP CONSTRAINT fact_Customer_fk;
+ALTER TABLE Fact DROP CONSTRAINT fact_date_fk;
+ALTER TABLE Fact DROP CONSTRAINT fact_product_fk;
+ALTER TABLE Fact DROP CONSTRAINT fact_state_fk;
+
+ALTER TABLE DIM_PRODUCT DROP CONSTRAINT product_cate_fk;
+ALTER TABLE DIM_PRODUCT DROP CONSTRAINT product_sub_cat_fk;
+
+
+ALTER TABLE DIM_DATE DROP CONSTRAINT date_month_fk;
+ALTER TABLE DIM_DATE DROP CONSTRAINT date_year_fk;
+
+DELETE FROM Fact;
+DELETE FROM DIM_PRODUCT;
+DELETE FROM DIM_CUSTOMER;
+DELETE FROM DIM_DATE;
+
+DELETE FROM DIM_SUB_CATEGORY;
+DELETE FROM DIM_CATEGORY;
+
+
+DELETE FROM DIM_STATE;
+
+DELETE FROM DIM_CITY;
+
+
+
+DELETE FROM DIM_MONTH;
+DELETE FROM DIM_YEAR;
+
+
+
+
+
+alter table Fact 
+add constraint fact_city_fk foreign key(City) references DIM_CITY(City),
+	constraint fact_Customer_fk foreign key("Customer ID") references DIM_CUSTOMER("Customer ID"),
+	constraint fact_date_fk foreign key("Order Date") references DIM_DATE("Order Date"),
+	constraint fact_product_fk foreign key("Product Name") references DIM_PRODUCT("Product Name"),
+	constraint fact_state_fk foreign key("State") references DIM_STATE("State");
+
+alter table DIM_PRODUCT
+add constraint product_cate_fk foreign key(Category) references DIM_CATEGORY(Category),
+   constraint product_sub_cat_fk foreign key("Sub-Category") references DIM_SUB_CATEGORY("Sub-Category");
+
+alter table DIM_DATE
+add constraint date_month_fk foreign key("MONTH") references DIM_MONTH("MONTH"),
+	constraint date_year_fk foreign key("YEAR") references DIM_YEAR("YEAR");
+
+
+
+
+alter table Fact 
+add constraint fact_city_fk foreign key(City) references DIM_CITY(City),
+	constraint fact_Customer_fk foreign key("Customer ID") references DIM_CUSTOMER("Customer ID"),
+	constraint fact_date_fk foreign key("Order Date") references DIM_DATE("Order Date"),
+	constraint fact_product_fk foreign key("Product Name") references DIM_PRODUCT("Product Name"),
+	constraint fact_state_fk foreign key("State") references DIM_STATE("State");
+
+alter table Fact 
+add constraint fact_city_fk foreign key(City) references DIM_CITY(City),
+	constraint fact_Customer_fk foreign key("Customer Name") references DIM_CUSTOMER("Customer Name"),
+	constraint fact_date_fk foreign key("Order Date") references DIM_DATE("Order Date"),
+	constraint fact_product_fk foreign key("Product Name") references DIM_PRODUCT("Product Name"),
+	constraint fact_state_fk foreign key("State") references DIM_STATE("State");
+
+
